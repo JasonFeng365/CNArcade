@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Code Ninjas Arcade</title>
+	<link rel="icon" type="image/x-icon" href="favicon">
+</head>
+
+<body>
+	<div><a href="/makecode">MakeCode</a></div>
+
+	<br>
+	
+	<div>
+		{% for game in getGames() %}
+			<button onclick="setGame('{{ game }}', '{{getURL(game)}}')">{{game}}</button>
+		{% endfor %}
+	</div>
+
+	<iframe id="frame" width="1000" height="700" src="http://localhost:5000/unity/SampleProject1/index.html"></iframe>
+</body>
+</html>
+
+<script>
+	function setGame(game, url) {
+		document.getElementById('frame').src = url
+	}
+</script>
